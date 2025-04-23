@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biometric_vqa"
+dynamic = ["version"]
+description = "biometric_vqa: A codebase for the BiometricVQA dataset, designed for benchmarking the spatial perception ability of VLMs for biometrics measurement"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Yongcheng Yao", email = "yc.yao@ed.ac.uk" }]
+license = { text = "CC-BY-NC 4.0" }
+dependencies = [
+    "nibabel",
+    "numpy",
+    "SimpleITK",
+    "huggingface_hub",
+    "synapseclient",
+    "gdown",
+    "gdrive",
+    "requests",
+    "scipy",
+    "opencv-python",
+    "matplotlib",
+    "rarfile",
+    "py7zr",
+    "scikit-image",
+    "pynrrd",
+    "tqdm",
+    "pandas",
+    "datasets",
+]
+
+[project.urls]
+"License" = "https://creativecommons.org/licenses/by-nc/4.0/"
+"Homepage" = "to be updated"
+
+[tool.setuptools]
+packages = [
+    "biometric_vqa",
+    "biometric_vqa.utils",
+    "biometric_vqa.datasets",
+    "biometric_vqa.datasets.AbdomenAtlas__1_0__Mini",
+    "biometric_vqa.datasets.AbdomenCT_1K",
+    "biometric_vqa.datasets.ACDC",
+    "biometric_vqa.datasets.AMOS22",
+    "biometric_vqa.datasets.autoPET_III",
+    "biometric_vqa.datasets.BCV15",
+    "biometric_vqa.datasets.BraTS24",
+    "biometric_vqa.datasets.CAMUS",
+    "biometric_vqa.datasets.Ceph_Biometrics_400",
+    "biometric_vqa.datasets.CrossMoDA",
+    "biometric_vqa.datasets.FLARE22",
+    "biometric_vqa.datasets.FeTA24",
+    "biometric_vqa.datasets.HNTSMRG24",
+    "biometric_vqa.datasets.ISLES24",
+    "biometric_vqa.datasets.KiPA22",
+    "biometric_vqa.datasets.KiTS23",
+    "biometric_vqa.datasets.MSD",
+    "biometric_vqa.datasets.OAIZIB_CM",
+    "biometric_vqa.datasets.SKM_TEA",
+    "biometric_vqa.datasets.ToothFairy2",
+    "biometric_vqa.datasets.TopCoW24",
+    "biometric_vqa.datasets.TotalSegmentator",
+]
+package-dir = { "" = "." }
+
+[tool.setuptools.dynamic]
+version = { attr = "biometric_vqa.__version__" }
