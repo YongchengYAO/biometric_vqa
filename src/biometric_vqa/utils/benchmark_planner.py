@@ -2029,6 +2029,7 @@ class BiometricVQA_BenchmarkPlannerBiometry_fromSeg(
         for case in cases:
             landmark_file = case.get("landmark_file")
             image_file = case.get("image_file")
+            mask_file = case.get("mask_file")
             # For the "Tumor-Lesion-Size" task, slice_profiles_dirX could be empty
             slice_profiles_dirX_ls = case.get(slice_profiles_key, [])
             if len(slice_profiles_dirX_ls) == 0:
@@ -2084,6 +2085,7 @@ class BiometricVQA_BenchmarkPlannerBiometry_fromSeg(
                         {
                             "image_file": image_file,
                             "landmark_file": landmark_file,
+                            "mask_file": mask_file,
                             "slice_dim": slice_dim,
                             "slice_idx": slice_idx,
                             "biometric_profile": biometric_ellipses_ls,
