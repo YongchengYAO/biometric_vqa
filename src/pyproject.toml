@@ -7,14 +7,14 @@ name = "biometric_vqa"
 dynamic = ["version"]
 description = "biometric_vqa: A codebase for the BiometricVQA dataset, designed for benchmarking the spatial perception ability of VLMs for biometrics measurement"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 authors = [{ name = "Yongcheng Yao", email = "yc.yao@ed.ac.uk" }]
 license = { text = "CC-BY-NC 4.0" }
 dependencies = [
     "nibabel",
     "numpy",
     "SimpleITK",
-    "huggingface_hub",
+    "huggingface_hub[xet,cli]",
     "synapseclient",
     "gdown",
     "gdrive",

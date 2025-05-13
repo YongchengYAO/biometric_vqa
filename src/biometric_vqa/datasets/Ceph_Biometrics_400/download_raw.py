@@ -90,7 +90,7 @@ def process_landmarks_data(
             json_dict = {
                 "slice_landmarks_x": [
                     {
-                        "slice_idx": 1,
+                        "slice_idx": 0,
                         "landmarks": landmarks,
                     },
                 ],
