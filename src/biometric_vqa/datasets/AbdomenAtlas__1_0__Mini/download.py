@@ -5,6 +5,8 @@ import glob
 from huggingface_hub import snapshot_download
 import nibabel as nib
 from biometric_vqa.utils.preprocess_utils import move_folder
+from biometric_vqa.utils.data_conversion import convert_mask_to_uint16_per_dir
+from biometric_vqa.datasets.AbdomenAtlas__1_0__Mini.preprocess_segmentation import benchmark_plan as AbdomenAtlas1_0_Mini_benchmark_plan
 
 
 # ====================================
@@ -15,6 +17,21 @@ from biometric_vqa.utils.preprocess_utils import move_folder
 # Data: https://huggingface.co/datasets/AbdomenAtlas/AbdomenAtlas1.0Mini
 # Format: nii.gz
 # ====================================
+
+
+def convert_masks_to_uint16(dataset_dir):
+    mask_folders = _get_mask_folders(AbdomenAtlas1_0_Mini_benchmark_plan)
+    for folder in mask_folders:
+        mask_folder = os.path.join(dataset_dir, folder)
+        convert_mask_to_uint16_per_dir(mask_folder)
+    
+
+def _get_mask_folders(bm_plan):
+    """Get unique mask folders from tasks"""
+    mask_folders = []
+    for task in bm_plan["tasks"]:
+        mask_folders.append(task["mask_folder"])
+    return list(set(mask_folders))
 
 
 def download_and_extract(dataset_dir, dataset_name):
@@ -70,6 +87,10 @@ def download_and_extract(dataset_dir, dataset_name):
             new_mask = nib.Nifti1Image(mask.get_fdata(), img.affine, img.header)
             nib.save(new_mask, mask_file)
     print("Finished updating Nifti headers for mask files")
+
+    # NOTE: 
+    # Convert masks to uint16
+    convert_masks_to_uint16(tmp_dir)
 
     # Move folder to dataset_dir
     folders_to_move = [
