@@ -4,6 +4,7 @@ import glob
 import matplotlib.pyplot as plt
 import nibabel as nib
 
+
 def plot_slice_with_landmarks(nii_path: str, json_path: str, fig_path: str = None):
     """Plot first slice from NIfTI file and overlay landmarks from JSON file.
 
@@ -93,3 +94,48 @@ def plot_slice_with_landmarks_batch(image_dir: str, landmark_dir: str, fig_dir: 
             plot_slice_with_landmarks(nii_path, json_path, fig_path)
         else:
             print(f"Warning: No landmark file found for {base_name}")
+
+
+def plot_2Darray_wRASinfo(img_data, slice_dim, pixel_sizes, save_path):
+    """Helper function to plot 2D image slices with RAS orientation info."""
+    # Create visualization
+    img_height, img_width = img_data.shape
+    aspect_ratio = img_width / img_height
+    base_size = 10
+    figsize = (
+        (base_size * aspect_ratio, base_size)
+        if aspect_ratio > 1
+        else (base_size, base_size / aspect_ratio)
+    )
+    # Calculate aspect ratio based on pixel sizes
+    aspect_ratio = pixel_sizes[1] / pixel_sizes[0]
+    # Plot image and landmarks with correct aspect ratio
+    plt.figure(figsize=figsize)
+
+    # Handle different slice orientations
+    if slice_dim == 0:  # Sagittal
+        plt.imshow(
+            img_data.T,
+            cmap="gray",
+            origin="lower",
+            aspect=aspect_ratio,
+        )
+        plt.xlabel("Anterior →", fontsize=14)
+        plt.ylabel("Superior →", fontsize=14)
+    elif slice_dim == 1:  # Coronal
+        plt.imshow(
+            img_data.T,
+            cmap="gray",
+            origin="lower",
+            aspect=aspect_ratio,
+        )
+        plt.xlabel("Right →", fontsize=14)
+        plt.ylabel("Superior →", fontsize=14)
+    else:  # Axial
+        plt.imshow(img_data.T, cmap="gray", origin="lower", aspect=aspect_ratio)
+        plt.xlabel("Right →", fontsize=14)
+        plt.ylabel("Anterior →", fontsize=14)
+
+    plt.margins(0)
+    plt.savefig(save_path)
+    plt.close()
