@@ -34,6 +34,7 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="YongchengYAO/KiTS23-Lite",
         filename="KiTS23.zip",
         repo_type="dataset",
+        revision="9680c15fcce821bbaff00f939e56a1e805267006",  # commit hash on 2025-02-20
         local_dir=".",
     )
 

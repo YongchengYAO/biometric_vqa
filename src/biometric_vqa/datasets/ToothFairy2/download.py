@@ -35,12 +35,21 @@ def download_and_extract(dataset_dir, dataset_name):
     # Add download logic here [!]
     # ====================================
     # Download dataset from Hugging Face Hub
-    hf_hub_download(
-        repo_id=BiometricVQA_ToothFairy2_HF_ID,
-        filename="ToothFairy2.zip",
-        repo_type="dataset",
-        local_dir=".",
-    )
+    if BiometricVQA_ToothFairy2_HF_ID == "YongchengYAO/ToothFairy2":
+        hf_hub_download(
+            repo_id=BiometricVQA_ToothFairy2_HF_ID,
+            filename="ToothFairy2.zip",
+            repo_type="dataset",
+            revision="24c4066d9868d468c5bedf3d7045ed78f993c20c",  # commit hash on 2025-02-01
+            local_dir=".",
+        )
+    else:
+        hf_hub_download(
+            repo_id=BiometricVQA_ToothFairy2_HF_ID,
+            filename="ToothFairy2.zip",
+            repo_type="dataset",
+            local_dir=".",
+        )
 
     # Extract the downloaded zip file
     with zipfile.ZipFile("ToothFairy2.zip", "r") as zip_ref:

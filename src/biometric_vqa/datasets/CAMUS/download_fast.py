@@ -35,6 +35,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/CAMUS-Lite",
             filename=file,
             repo_type="dataset",
+            revision="b5f71984d0f1c11827a826e19e76cad02aa668ed", # commit hash on 2025-02-20
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

@@ -33,6 +33,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/autoPET-III-Lite",
             filename=file,
             repo_type="dataset",
+            revision="8bd790fde9b76a48ac6e967ce0e621e8aa4730aa", # commit hash on 2025-02-21
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

@@ -36,6 +36,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/ISLES24-MR-Lite",
             filename=filename,
             repo_type="dataset",
+            revision="44b0185b2964c5550772d03e817959f2113cb064", # commit hash on 2025-02-20
             local_dir=".",
         )
 

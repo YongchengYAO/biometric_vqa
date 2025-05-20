@@ -39,12 +39,14 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="YongchengYAO/TotalSegmentator-CT-Lite",
         filename="Images.zip",
         repo_type="dataset",
+        revision="cbbab480af869bf7abc3f4c86da56ef5f6436232",  # commit hash on 2025-04-11
         local_dir=ct_dir,
     )
     hf_hub_download(
         repo_id="YongchengYAO/TotalSegmentator-CT-Lite",
         filename="Masks.zip",
         repo_type="dataset",
+        revision="cbbab480af869bf7abc3f4c86da56ef5f6436232",  # commit hash on 2025-04-11
         local_dir=ct_dir,
     )
 
@@ -55,12 +57,14 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="YongchengYAO/TotalSegmentator-MR-Lite",
         filename="Images.zip",
         repo_type="dataset",
+        revision="6d6135d58049c7f5dc694be43b7f0870b55f2392",  # commit hash on 2025-04-11
         local_dir=mr_dir,
     )
     hf_hub_download(
         repo_id="YongchengYAO/TotalSegmentator-MR-Lite",
         filename="Masks.zip",
         repo_type="dataset",
+        revision="6d6135d58049c7f5dc694be43b7f0870b55f2392",  # commit hash on 2025-04-11
         local_dir=mr_dir,
     )
 

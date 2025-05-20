@@ -35,6 +35,7 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="YongchengYAO/TopCoW24-Seg",
         filename="TopCoW24.zip",
         repo_type="dataset",
+        revision="53469cf5998bd051d29803c6660d4cd2210214bc",  # commit hash on 2025-02-20
         local_dir=".",
     )
 

@@ -34,6 +34,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/ACDC",
             filename=file,
             repo_type="dataset",
+            revision="660f25484d2bd11d0416acdf332b97fd97f9c453", # commit hash on 2025-02-20
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

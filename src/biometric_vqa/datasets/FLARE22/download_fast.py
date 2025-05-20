@@ -35,6 +35,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/FLARE22-Lite",
             filename=file,
             repo_type="dataset",
+            revision="7c6db3f040fd9f9849e236651c828a22ef0f4f2f", # commit hash on 2025-02-21
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

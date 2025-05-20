@@ -52,6 +52,7 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="AbdomenAtlas/AbdomenAtlas1.0Mini",
         repo_type="dataset",
         local_dir=dest_dir,
+        revision="4dff62f03f7e4f17cd8c62617bc75fde9893a1e9", # commit hash on 2025-02-20
     )
 
     # Create Images and Masks directories

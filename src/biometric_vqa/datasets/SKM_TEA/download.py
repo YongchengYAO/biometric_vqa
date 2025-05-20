@@ -34,12 +34,21 @@ def download_and_extract(dataset_dir, dataset_name):
     # Add download logic here [!]
     # ====================================
     # Download dataset from Hugging Face Hub
-    hf_hub_download(
-        repo_id=BiometricVQA_SKMTEA_HF_ID,
-        filename="SKM-TEA-nii.zip",
-        repo_type="dataset",
-        local_dir=".",
-    )
+    if BiometricVQA_SKMTEA_HF_ID == "YongchengYAO/SKM-TEA-nii":
+        hf_hub_download(
+            repo_id=BiometricVQA_SKMTEA_HF_ID,
+            filename="SKM-TEA-nii.zip",
+            repo_type="dataset",
+            revision="289ba731ea6b17e948210ce9cfbfaa95fa1ef236",  # commit hash on 2025-02-01
+            local_dir=".",
+        )
+    else:
+        hf_hub_download(
+            repo_id=BiometricVQA_SKMTEA_HF_ID,
+            filename="SKM-TEA-nii.zip",
+            repo_type="dataset",
+            local_dir=".",
+        )
 
     # Extract the downloaded zip file
     with zipfile.ZipFile("SKM-TEA-nii.zip", "r") as zip_ref:

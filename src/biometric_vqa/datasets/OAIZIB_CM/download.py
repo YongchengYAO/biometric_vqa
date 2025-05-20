@@ -34,6 +34,7 @@ def download_and_extract(dataset_dir, dataset_name):
         repo_id="YongchengYAO/OAIZIB-CM",
         allow_patterns="*.zip",
         repo_type="dataset",
+        revision="ba18c844309f6288b51772fd79a8f7cdb6aabc01",  # commit hash on 2025-05-06
         local_dir=".",
     )
 

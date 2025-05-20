@@ -36,6 +36,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/Ceph-Biometrics-400",
             filename=file,
             repo_type="dataset",
+            revision="8cd93443d4ba6d327c74dde39184d846034d920a", # commit hash on 2025-05-09
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

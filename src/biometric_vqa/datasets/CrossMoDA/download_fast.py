@@ -35,6 +35,7 @@ def download_and_extract(dataset_dir, dataset_name):
             repo_id="YongchengYAO/CrossMoDA-Lite",
             filename=file,
             repo_type="dataset",
+            revision="7e35dd56061d1e15e814276f8cdef4b42dcbe9fd", # commit hash on 2025-02-26
             local_dir=".",
         )
         print(f"Extracting {file}... This may take some time.") 

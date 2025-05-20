@@ -35,12 +35,21 @@ def download_and_extract(dataset_dir, dataset_name):
     # Add download logic here [!]
     # ====================================
     # Download dataset from HuggingFace
-    hf_hub_download(
-        repo_id=BiometricVQA_KiPA22_HF_ID,
-        filename="train.zip",
-        repo_type="dataset",
-        local_dir=".",
-    )
+    if BiometricVQA_KiPA22_HF_ID == "YongchengYAO/KiPA22":
+        hf_hub_download(
+            repo_id=BiometricVQA_KiPA22_HF_ID,
+            filename="train.zip",
+            repo_type="dataset",
+            revision="5d5761d6e4a17e911eca558b251d2f3e4650b85e",  # commit hash on 2025-02-07
+            local_dir=".",
+        )
+    else:
+        hf_hub_download(
+            repo_id=BiometricVQA_KiPA22_HF_ID,
+            filename="train.zip",
+            repo_type="dataset",
+            local_dir=".",
+        )
 
     # Extract zip file
     with zipfile.ZipFile("train.zip", "r") as zip_ref:
