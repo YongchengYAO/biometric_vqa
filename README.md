@@ -2,6 +2,8 @@
 
 This is the official codebase for the [BiometricVQA dataset](https://huggingface.co/datasets/YongchengYAO/BiometricVQA).
 
+![dataset-info](README.assets/dataset-info.png)
+
 ## Install
 
 ```bash
